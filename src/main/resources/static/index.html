@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+table {
+	border-collapse: collapse;
+	border: 2px black solid;
+	font: 12px sans-serif;
+}
+
+td, th {
+	border: 1px black solid;
+	padding: 5px;
+}
+</style>
+
+<script src=platform.js " async defer></script>
+<link rel="stylesheet" href="bootstrap.min.css">
+<script src="jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<script src="csv.js"></script>
+<title>CSV</title>
+</head>
+<body>
+	<div class="container">
+		<input type="button" value="Add Users" id="addUser"
+			class="btn btn-primary" style="width: 49%" /> <input type="button"
+			value="View Users" id="viewUser" class="btn btn-default"
+			style="width: 49%" />
+	</div>
+
+	<div id="add">
+		<div class="container">
+			<input type="file" id="fileUpload" class="btn" /> <input
+				type="button" id="upload" value="Upload" onclick="Upload()"
+				class="btn btn-primary" style="width: 49%" /> <input type="button"
+				id="submit" value="Submit" disabled class="btn btn-success"
+				style="width: 49%" />
+		</div>
+
+
+		<table id="tableMain" class="table table-striped">
+			<tbody id="dvCSV">
+			</tbody>
+		</table>
+		<div>
+			<b>Warning:</b>
+			<h5>First Name and Last Name Size Should Be Less Than 20</h5>
+			<h5>Date Of Birth Should be in "mm/dd/yyyy" format and Age
+				Should in the range 24-70</h5>
+			<h5>Postal code should be of strictly 6 digits and should accept
+				numeric values only</h5>
+		</div>
+	</div>
+
+	<div id="view">
+		<table class="table table-striped">
+			<thead>
+
+			</thead>
+			<tbody id="resiltData">
+
+
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>
