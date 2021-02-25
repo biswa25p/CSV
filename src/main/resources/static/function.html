@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+	<style type="text/css">
+		div{
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+<div id="Area">
+	<span>Base</span><input type="number" name="base" id="base" onchange="area()">
+	<span>Height</span><input type="number" name="height" id="height" onchange="area()">
+	<span> Area Of Trangle = </span> <span id="areaResult">0</span>
+</div>
+
+<div id="Age">
+	<span>Enter Your Age In Years</span>
+	<input type="number" name="age" id="age" onchange="age()">
+	<span>, Your Age In Days = </span><span id="ageResult">0</span>
+</div>
+<div>
+	<button onclick="getData()">Get Data</button>
+	<span id="dataResult"></span>
+</div>
+
+</body>
+<script type="text/javascript">
+	
+	function area() {
+		var base = document.getElementById('base').value;
+		var height = document.getElementById('height').value;
+		var area = base * height;
+		document.getElementById('areaResult').textContent = area;
+	}
+
+	function age() {
+		var age = document.getElementById('age').value;
+		document.getElementById('ageResult').textContent = age*365;
+	}
+
+	function checkArray(array) {
+		return Array.isArray(array);
+	}
+
+	function getData() {
+		fetch('https://jsonplaceholder.typicode.com/users').then(function (response) {
+		// The API call was successful!
+		return response.json();
+		}).then(function (data) {
+			// This is the JSON from our response
+			document.getElementById('dataResult').textContent = JSON.stringify(data);
+		}).catch(function (err) {
+			// There was an error
+			document.getElementById('dataResult').textContent = 'Something went wrong.';
+		});
+	}
+	function cloneArray(baseArray) {
+		var resultArray = [];
+		for(var i = 0; i<baseArray.length; i++){
+			resultArray.concat(baseArray[i]);
+		}
+		return resultArray;
+	}
+</script>
+</html>
